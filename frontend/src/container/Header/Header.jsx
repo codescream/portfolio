@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { images } from '../../constants';
+import { shuffleArray } from '../../utils/general';
 
 import './Header.scss';
 
@@ -16,6 +17,22 @@ const scaleVariants = {
 }
 
 const Header = () => {
+  const [skills, setSkills] = useState([images.node, images.react, images.sass, images.javascript])
+  const allSkills = [images.node, images.react, images.sass, images.javascript, images.vue, images.python, images.api, images.redux];
+
+  // const skills = [images.node, images.react, images.sass, images.javascript];
+
+  useEffect(() => {
+    const eventId = setTimeout(() => {
+      const array = shuffleArray(allSkills);
+      setSkills(array.slice(0, 4));
+    }, 10000);
+
+    return () => {
+      clearTimeout(eventId);
+    }
+  }, [skills]);
+
   return (
     <div id='home' className='app__header app__flex'>
       <motion.div
@@ -62,12 +79,20 @@ const Header = () => {
         className='app__header-circles'
       >
         {
-          [images.flutter, images.redux, images.sass].map((circle, index) => (
+          skills.map((skill, index) => (
             <div
               className='circle-cmp app__flex'
-              key={`circle-${index}`}
+              key={`skill-${index}`}
             >
-              <img src={circle} alt="circle" />
+              <motion.img
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+                src={skill}
+                alt='skill'
+                key={`${skill}-${index}`}
+              />                
+              {/* <img src={circle} alt="circle" /> */}
             </div>
           ))
         }

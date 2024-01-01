@@ -139,7 +139,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
-  gap: 2rem;
+  gap: 1rem;
   height: 100%;
   width: fit-content;
   // background-color: blue;
@@ -147,6 +147,8 @@
   .circle-cmp {
     width: 100px;
     height: 100px;
+    // aspect-ratio: 1 / 1;
+    // object-fit: cover;
     border-radius: 50%;
 
     background: var(--white-color);
@@ -159,23 +161,66 @@
     &:nth-child(1) {
       width: 80px;
       height: 80px;
+      margin: -3rem;
     }
 
     &:nth-child(2) {
-      margin: 2rem;
       width: 120px;
       height: 120px;
+      margin: 1rem;
     }
 
     &:nth-child(3) {
-      width: 60px;
-      height: 60px;
+      width: 100px;
+      height: 100px;
+      margin-left: 3rem;
+    }
+
+    @media screen and (max-width: 900px) {
+      &:nth-child(1) {
+       margin: 0;
+      }
+
+      &:nth-child(2) {
+        margin: 0;
+        margin-top: 1rem;
+      }
+
+      &:nth-child(3) {
+        margin: 0;
+        margin-top: 3rem;
+      }
+    }
+
+    @media screen and (max-width: 450px) {
+      &:nth-child(1) {
+        width: 60px;
+        height: 60px;
+        margin: 0;
+      }
+
+      &:nth-child(2) {
+        width: 100px;
+        height: 100px;
+        margin: 0;
+        margin-top: 1rem;
+      }
+
+      &:nth-child(3) {
+        width: 80px;
+        height: 80px;
+        margin: 0;
+        margin-top: 3rem;
+      }
     }
   }
 
   @media screen and (max-width: 900px) {
+    gap: 0;
     width: 100%;
     flex-direction: row;
+    justify-content: center;
+    align-items: space-evenly;
     // flex-wrap: wrap;
   }
 }
