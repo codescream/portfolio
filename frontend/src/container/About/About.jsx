@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { client, urlFor } from '../../client';
-import { images } from '../../constants';
+import { AppWrap } from '../../wrapper';
 
 import './About.scss';
 
@@ -12,11 +12,11 @@ const About = () => {
     const query = '*[_type == "abouts"]';
 
     client.fetch(query)
-    .then((data) => {console.log(data); setAbouts(data)});
+    .then((data) => setAbouts(data));
   }, [])
   
   return (
-    <>
+    <div className='app__about'>
       <h2 className='head-text'>
         I Know That
         <span> Good Design </span>
@@ -45,8 +45,8 @@ const About = () => {
           )
         }
       </div>
-    </>
+    </div>
   )
 }
 
-export default About;
+export default AppWrap(About, 'about');
