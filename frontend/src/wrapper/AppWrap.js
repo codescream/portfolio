@@ -3,10 +3,10 @@ import { NavigationDots, SocialIcons } from '../components';
 
 const AppWrap = (Component, idName, classNames) => function HOC() {
   return (
-    <div id={idName} className={`app__container ${classNames}`}>
+    <div id={idName} className={`app__container ${classNames ? classNames : ''}`}>
       <SocialIcons />
       
-      <div className='app__wrapper app__flex'>
+      <div className='app__wrapper'>
         <Component />
 
         <div className='copyright'>

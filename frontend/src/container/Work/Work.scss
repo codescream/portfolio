@@ -1,5 +1,6 @@
 .app__works {
   flex: 1;
+  margin-top: 3rem;
   width: 100%;
   flex-direction: column;
 }
@@ -7,7 +8,7 @@
 .app__work-filter {
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 

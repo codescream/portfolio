@@ -3,9 +3,10 @@ export default {
     title:'Work Experience',
     type:'document',
     fields:[
-           {name:'name',
-               title:'name',
-               type:'string'
+           {
+                name:'name',
+                title:'Name',
+                type:'string'
             },
             {
                 name:'company',
