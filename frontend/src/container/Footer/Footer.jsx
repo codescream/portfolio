@@ -41,7 +41,7 @@ const Footer = () => {
   return (
     <>
       <h2 className='head-text'>
-        Take a coffee & chat with me
+        Take a <span>coffee</span> & chat <span>with</span> me
       </h2>
 
       <div className='app__flex'>

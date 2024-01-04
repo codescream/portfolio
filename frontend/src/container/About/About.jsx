@@ -18,7 +18,7 @@ const About = () => {
   
   return (
     <>
-      <h2 className='head-text app__flex'>
+      <h2 className='head-text'>
         I Know That
         <span> Good Design </span>
         means
