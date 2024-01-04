@@ -35,7 +35,7 @@ const Header = () => {
   }, [skills]);
 
   return (
-    <div className='app__flex'>
+    <div className='app__header app__flex'>
       <motion.div
         whileInView={{ x: [-100, 0], opacity: [0, 1]}}
         transition={{ duration: 2 }}
@@ -102,4 +102,4 @@ const Header = () => {
   )
 }
 
-export default AppWrap(Header, 'home', 'app__header');
+export default AppWrap(Header, 'home');
