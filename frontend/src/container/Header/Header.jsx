@@ -54,7 +54,7 @@ const Header = () => {
             <p className='p-text'>Web Developer</p>
             <p className='p-text'>Freelancer</p>
             <p className='p-text'>Linux System Administrator</p>
-            <p className='p-text'>Freelancer</p>
+            <p className='p-text'>API System Integration</p>
           </div>
         </div>
       </motion.div>
