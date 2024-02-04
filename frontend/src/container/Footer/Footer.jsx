@@ -16,7 +16,7 @@ const Footer = () => {
   const { name, email, message } = formData;
 
   const handleChangeInput = (e) => {
-    const {name, value } = e.target;
+    const { name, value } = e.target;
 
     setFormData({...formData, [name]: value});
   }
@@ -61,11 +61,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      
-
       {
-        !isFormSubmitted ? 
-        <div className='app__flex'>
+        !isFormSubmitted ? (<div className='app__flex'>
           <div className='app__footer-form app__flex'>
             <div className='app__flex'>
               <input className='p-text' type="text" placeholder='Your Name' name='name' value={name} 
@@ -96,11 +93,9 @@ const Footer = () => {
             wrapperStyle={{ backgroundColor: 'transparent', display: 'inline' }} />
             </>  : 'Send Message' }</button>
           </div>
-        </div>
-         :
-        <div>
-          <h3 className='head-text'>Thank you for getting in touch!</h3>
-        </div>
+        </div>):(<div>
+                  <h3 className='head-text'>Thank you for getting in touch!</h3>
+                </div>)
       }
     </>
   )
@@ -110,4 +105,4 @@ export default AppWrap(
   MotionWrap(Footer, 'app__footer'),
   'contact',
   'app__whitebg'
-  );
+);
