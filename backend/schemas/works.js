@@ -32,18 +32,17 @@ export default {
           hotspot: true,
         },
       },
-   
       {
         name: 'tags',
         title: 'Tags',
-       type:'array',
-       of: [
-         {
-           name:'tag',
-           title:'Tag',
-           type:'string'
-         }
-       ]
+        type:'array',
+        of: [
+          {
+            name:'tag',
+            title:'Tag',
+            type:'string'
+          }
+        ]
       },
      
     ],

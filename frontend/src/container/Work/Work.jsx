@@ -10,6 +10,7 @@ const Work = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [animateCard, setAnimateCard] = useState({y: 0, opacity: 1});
   const [works, setWorks] = useState([]);
+  const [stacks, setStacks] = useState([]);
   const [filterWork, setFilterWork] = useState([]);
 
   useEffect(() => {
@@ -20,6 +21,14 @@ const Work = () => {
         const all = data.filter((item) => item.tags.includes(activeFilter));
         setWorks(data);
         setFilterWork(all);
+      });
+
+    const stacksQuery = '*[_type == "stacks"]';
+
+    client.fetch(stacksQuery)
+      .then((data) => {
+        console.log('stacks:', data);
+        setStacks(data);
       });
   }, [])
   
@@ -46,13 +55,13 @@ const Work = () => {
 
       <div className='app__work-filter'>
         {
-          ['UI/UX', 'Web App', 'Vanilla JS', 'API Integration', 'React JS', "React Native",  'Next JS', 'ECommerce', 'Mongo DB', 'Sanity', 'Sql', 'MERN', 'Stripe', 'Expo', 'All'].map((work, index) => 
+          stacks?.map((stack, index) => 
             <div 
               key={index}
-              onClick={() => handleWorkFilter(work)}
-              className={`app__work-filter-item app__flex p-text ${activeFilter === work ? 'item-active' : ''}`}
+              onClick={() => handleWorkFilter(stack?.title)}
+              className={`app__work-filter-item app__flex p-text ${activeFilter === stack?.title ? 'item-active' : ''}`}
             >
-              {work}
+              {stack?.title}
             </div>
           )
         }
